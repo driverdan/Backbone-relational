@@ -275,7 +275,8 @@
 		 * @param {String|Number|Object|Backbone.RelationalModel} item
 		 */
 		resolveIdForItem: function( type, item ) {
-			var id = _.isString( item ) || _.isNumber( item ) ? item : null;
+			var itemType = typeof item,
+				id = itemType == "string" || itemType == "number" ? item : null;
 
 			if ( id == null ) {
 				if ( item instanceof Backbone.RelationalModel ) {
